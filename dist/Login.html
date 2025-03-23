@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARA Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="loginscript.js"></script>
+</head>
+<body class="bg-white">
+
+    <iframe height="800" width="100%" style="border:none;" src="https://fruitask.com/forms/?p=0LFMfzeHR5t7147" title="Fruitask"> </iframe>
+
+    <header class="text-black pt-32">
+        <div class="container mx-auto px-4 py-20 flex flex-col items-center">
+            <div class="flex items-center mb-6">
+                <img src="../image/tara-512.png" class="h-12 w-24 mr-4" alt="Tara Logo">
+                <h1 class="text-2xl md:text-4xl font-bold">Tara</h1>
+            </div>
+            <form id="login-form" class="bg-white p-6 md:p-8 border border-gray-300 rounded-lg w-full max-w-md">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Enter Email</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="text" placeholder="Email" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="tgid">Enter TGID</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tgid" type="password" placeholder="TGID" required>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105" type="submit">
+                        Login
+                    </button>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-gray-600">Not yet registered?</p>
+                    <a href="index.html" class="text-blue-500 hover:underline" id="apply-link">Apply as a Tara Rider</a>
+                </div>
+                <div id="loading-animation" class="hidden mt-4 text-center">
+                    <svg class="animate-spin h-5 w-5 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                    </svg>
+                    <p class="text-gray-600 mt-2">Redirecting...</p>
+                </div>
+                <script>
+                    document.getElementById('apply-link').addEventListener('click', function (e) {
+                        e.preventDefault();
+                        document.getElementById('loading-animation').classList.remove('hidden');
+                        setTimeout(() => {
+                            window.location.href = 'index.html';
+                        }, 2000); 
+                    });
+                </script>
+            </form>
+        </div>
+    </header>
+
+   </body>
+</html>
