@@ -15,8 +15,8 @@ $(document).ready(function () {
       tgid: $("#tgid").val(),
     };
 
-    const idImageFile = $("#selfie_file")[0]?.files[0]; // ID Image
-    const orcrFile = $("#id_photo_file")[0]?.files[0]; // ORCR Image
+    const idImageFile = $("#selfie_file")[0]?.files[0]; 
+    const orcrFile = $("#id_photo_file")[0]?.files[0]; 
 
     function uploadFile(file, apiUrl, callback) {
       let fileUploadFormData = new FormData();
@@ -33,14 +33,14 @@ $(document).ready(function () {
           if (fileResponse.status === "success" && fileResponse.file_url) {
             let uploadedUrl = fileResponse.file_url;
 
-            // Ensure the URL follows expected format
+
             if (!uploadedUrl.startsWith("https://dwayon.tech/api/Storage/")) {
               console.error("Invalid file URL received:", uploadedUrl);
               callback("Invalid file URL", null);
               return;
             }
 
-            callback(null, uploadedUrl); // Send URL to callback
+            callback(null, uploadedUrl);
           } else {
             callback(fileResponse.message || "Unknown error", null);
           }
@@ -63,7 +63,7 @@ $(document).ready(function () {
             alert("ID Image upload failed: " + err);
             return;
           }
-          formData.id_image = url; // Ensure proper key name
+          formData.id_image = url; 
 
           if (orcrFile) {
             uploadFile(orcrFile, "https://dwayon.tech/api/Storage/create/ORCR.php", function (err, url) {
@@ -71,18 +71,18 @@ $(document).ready(function () {
                 alert("ORCR Image upload failed: " + err);
                 return;
               }
-              formData.orcr_image = url; // Ensure proper key name
+              formData.orcr_image = url; 
               console.log("Final Form Data Before Submission:", formData);
-              sendFormData(formData); // Submit form after both uploads
+              sendFormData(formData); 
             });
           } else {
             console.log("Final Form Data Before Submission:", formData);
-            sendFormData(formData); // Submit form if no ORCR file
+            sendFormData(formData); 
           }
         });
       } else {
         console.log("Final Form Data Before Submission:", formData);
-        sendFormData(formData); // Submit form if no ID Image file
+        sendFormData(formData); 
       }
     }
 
