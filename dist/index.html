@@ -170,7 +170,6 @@
               Submit
             </button>
 
-            <!-- Confirmation Modal -->
             <div id="confirmationModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
               <div class="bg-white rounded-lg shadow-lg p-6 w-96">
               <h2 class="text-lg font-bold mb-4">Confirm Registration</h2>
@@ -198,7 +197,7 @@
                 showLoadingAnimation();
                 setTimeout(() => {
                 window.location.href = "traininghomepage.html";
-                }, 2000); // Simulate loading time
+                }, 2000); 
               }
               }
 
@@ -278,7 +277,7 @@
                 alert('The Email already exists in the database. Please use a different email.');
                 document.getElementById('email').classList.add('border-red-500');
                 document.getElementById('email').focus();
-                return false; // Prevent submission
+                return false; 
               }
 
               const duplicateDL = existingData.some(data => data['dl_id'] === newData['dl_id']);
@@ -287,8 +286,8 @@
                 alert('The Driver\'s License already exists in the database. Registration cannot proceed. Please use a different Driver\'s License.');
                 document.getElementById('dl_id').classList.add('border-red-500');
                 document.getElementById('dl_id').focus();
-                showForm1(); // Ensure the user is redirected to the first form if they are on the second form
-                return false; // Prevent submission
+                showForm1(); 
+                return false; 
               }
 
               const duplicateTGIDOrPlate = ['tgid', 'plate'].find(fieldId =>
@@ -300,7 +299,7 @@
                 alert(`The ${fieldName} already exists.`);
                 document.getElementById(duplicateTGIDOrPlate).classList.add('border-red-500');
                 document.getElementById(duplicateTGIDOrPlate).focus();
-                return false; // Prevent submission
+                return false; 
               }
 
               existingData.push(newData);
